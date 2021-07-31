@@ -1,5 +1,11 @@
+import Layout from 'containers/Layout';
+
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <Layout></Layout>
+    </>
+  );
 };
 
 export default Home;

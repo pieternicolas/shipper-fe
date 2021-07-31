@@ -1,5 +1,7 @@
 import { lazy, Suspense } from 'react';
-import { css, Global } from '@emotion/react';
+import { css, Global, ThemeProvider } from '@emotion/react';
+
+import baseTheme from 'config/styles';
 
 const Home = lazy(() => import('pages/Home'));
 
@@ -23,9 +25,11 @@ const App = () => {
         `}
       />
 
-      <Suspense fallback={null}>
-        <Home />
-      </Suspense>
+      <ThemeProvider theme={baseTheme}>
+        <Suspense fallback={null}>
+          <Home />
+        </Suspense>
+      </ThemeProvider>
     </>
   );
 };
