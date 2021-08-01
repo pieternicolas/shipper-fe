@@ -64,7 +64,6 @@ const SearchBox = ({ initialValue, onFilterChange }: SearchBoxProps) => {
             icon={<Image src={search} />}
             name={FIELDS.name}
             placeholder={PLACEHOLDER[FIELDS.name]}
-            defaultValue={initialValue}
             value={formInputValue}
             onChange={(e) => setFormInputValue(String(e.target.value))}
           />

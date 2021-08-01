@@ -13,6 +13,7 @@ import { GetUsers, GetUsersReturnProps } from 'api/queries';
 import SearchBox from './partials/SearchBox';
 import homeStyles from './styles';
 import { FIELDS, searchDefaultValues } from './constants';
+import DriverInfoBox from './partials/DriverInfoBox';
 
 const Home = () => {
   const classes = useMakeStyles(homeStyles);
@@ -37,9 +38,12 @@ const Home = () => {
             onFilterChange={(filter) => setNameFilter(filter)}
           />
 
-          <Div>
-            {usersData?.map((user) => (
-              <Div key={user.id.value}></Div>
+          <Div css={classes.driversContainer}>
+            {usersData?.map((user, i) => (
+              <DriverInfoBox
+                key={`user-${user.id.name}-${user.id.value}-${i}`}
+                driver={user}
+              />
             ))}
           </Div>
         </Div>

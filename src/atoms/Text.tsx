@@ -8,6 +8,7 @@ export type TextProps = HTMLAttributes<HTMLParagraphElement> & {
   as?: 'heading' | 'paragraph';
   bold?: boolean;
   textCutoff?: boolean;
+  color?: string;
 };
 type TextClasses = 'root';
 
@@ -15,6 +16,7 @@ const baseTextStyles: StylesFunc<TextClasses, TextProps> = (_theme, props) => ({
   root: {
     margin: 0,
     fontWeight: props?.bold ? 'bold' : 'normal',
+    color: props?.color ?? 'inherit',
     ...(props?.textCutoff
       ? {
           textOverflow: 'ellipsis',
@@ -25,8 +27,15 @@ const baseTextStyles: StylesFunc<TextClasses, TextProps> = (_theme, props) => ({
   },
 });
 
-const Text = ({ children, as, ...props }: TextProps) => {
-  const classes = useMakeStyles(baseTextStyles, props);
+const Text = ({
+  children,
+  as,
+  bold,
+  textCutoff,
+  color,
+  ...props
+}: TextProps) => {
+  const classes = useMakeStyles(baseTextStyles, { bold, textCutoff, color });
 
   if (as === 'heading') {
     return (

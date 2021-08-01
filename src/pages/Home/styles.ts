@@ -1,12 +1,18 @@
 import { StylesFunc } from 'config/styles';
 
-type HomeClasses = 'container';
+type HomeClasses = 'container' | 'driversContainer';
 
 const homeStyles: StylesFunc<HomeClasses> = (theme) => ({
   container: {
-    height: '100%',
     backgroundColor: theme.color.background,
     padding: '1em',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1em',
+    flex: '1 1 auto',
+    overflowY: 'auto',
+  },
+  driversContainer: {
     display: 'flex',
     flexDirection: 'column',
     gap: '1em',
