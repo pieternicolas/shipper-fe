@@ -4,7 +4,7 @@ import { Breakpoints } from 'config/styles';
 
 import useDebouncedEffect from './useDebouncedEffect';
 
-const getDeviceConfig = (width: number) => {
+const getDeviceConfig = (width: number): boolean => {
   if (width < Breakpoints.Desktop) {
     return true;
   } else {
@@ -13,12 +13,12 @@ const getDeviceConfig = (width: number) => {
 };
 
 const useBreakpoint = () => {
-  const [breakpoint, setBreakpoint] = useState(() =>
+  const [breakpoint, setBreakpoint] = useState<boolean>(() =>
     getDeviceConfig(window.innerWidth),
   );
 
   useDebouncedEffect(() => {
-    const calcInnerWidth = () =>
+    const calcInnerWidth = (): void =>
       setBreakpoint(getDeviceConfig(window.innerWidth));
 
     window.addEventListener('resize', calcInnerWidth);

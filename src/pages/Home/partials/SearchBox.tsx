@@ -19,7 +19,7 @@ export type SearchBoxProps = {
   initialValue: string;
   onFilterChange: (filter: string) => void;
 };
-type SearchBoxClasses = 'root' | 'header' | 'subheader';
+type SearchBoxClasses = 'root' | 'header' | 'formContainer';
 
 const searchBoxStyles: StylesFunc<SearchBoxClasses> = (theme) => ({
   root: {
@@ -32,7 +32,11 @@ const searchBoxStyles: StylesFunc<SearchBoxClasses> = (theme) => ({
   header: {
     color: theme.color.primary,
   },
-  subheader: {},
+  formContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1em',
+  },
 });
 
 const SearchBox = ({ initialValue, onFilterChange }: SearchBoxProps) => {
@@ -59,7 +63,7 @@ const SearchBox = ({ initialValue, onFilterChange }: SearchBoxProps) => {
           <Text>Data driver yang bekerja dengan Anda.</Text>
         </Div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} css={classes.formContainer}>
           <InputField
             icon={<Image src={search} />}
             name={FIELDS.name}
@@ -68,7 +72,9 @@ const SearchBox = ({ initialValue, onFilterChange }: SearchBoxProps) => {
             onChange={(e) => setFormInputValue(String(e.target.value))}
           />
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" alignLeft>
+            <Text bold>Tambah driver +</Text>
+          </Button>
         </form>
       </Div>
     </>
