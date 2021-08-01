@@ -11,7 +11,7 @@ import InputField from 'components/InputField';
 
 import useMakeStyles from 'hooks/useMakeStyles';
 
-import { StylesFunc } from 'config/styles';
+import { bpDesktop, StylesFunc } from 'config/styles';
 import { FIELDS, PLACEHOLDER } from '../constants';
 import useDebouncedEffect from 'hooks/useDebouncedEffect';
 
@@ -28,6 +28,11 @@ const searchBoxStyles: StylesFunc<SearchBoxClasses> = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: '1em',
+    [bpDesktop]: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
   },
   header: {
     color: theme.color.primary,
@@ -36,6 +41,12 @@ const searchBoxStyles: StylesFunc<SearchBoxClasses> = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: '1em',
+    img: {
+      filter: theme.color.primaryFilter,
+    },
+    [bpDesktop]: {
+      flexDirection: 'row',
+    },
   },
 });
 

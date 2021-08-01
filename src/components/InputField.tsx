@@ -21,6 +21,7 @@ const inputFieldStyles: StylesFunc<InputFieldClasses, InputFieldProps> = (
     padding: '0.5em',
     display: 'flex',
     gap: '0.5em',
+    alignItems: 'center',
   },
   input: {
     border: 0,
