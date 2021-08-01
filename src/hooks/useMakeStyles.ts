@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import { useTheme, Theme } from '@emotion/react';
+
 import { StylesFunc } from 'config/styles';
 
 const useMakeStyles = <
@@ -10,7 +12,7 @@ const useMakeStyles = <
 ) => {
   const baseTheme: Theme = useTheme();
 
-  return styles(baseTheme, props);
+  return useMemo(() => styles(baseTheme, props), [styles, baseTheme, props]);
 };
 
 export default useMakeStyles;

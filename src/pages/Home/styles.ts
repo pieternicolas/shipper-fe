@@ -1,6 +1,6 @@
 import { StylesFunc } from 'config/styles';
 
-type HomeClasses = 'container' | 'driversContainer';
+type HomeClasses = 'container' | 'driversContainer' | 'pagination';
 
 const homeStyles: StylesFunc<HomeClasses> = (theme) => ({
   container: {
@@ -16,6 +16,11 @@ const homeStyles: StylesFunc<HomeClasses> = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: '1em',
+  },
+  pagination: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '3em',
   },
 });
 
