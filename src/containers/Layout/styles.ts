@@ -1,8 +1,16 @@
 import { StylesFunc } from 'config/styles';
 
-type LayoutClasses = 'navigationBar' | 'sidebar' | 'logo' | 'logoContainer';
+type LayoutClasses =
+  | 'container'
+  | 'navigationBar'
+  | 'sidebar'
+  | 'logo'
+  | 'logoContainer';
 
 const layoutStyles: StylesFunc<LayoutClasses> = (theme) => ({
+  container: {
+    height: '100%',
+  },
   navigationBar: {
     backgroundColor: theme.color.white,
     padding: '1em',

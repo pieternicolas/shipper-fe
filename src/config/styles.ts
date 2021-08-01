@@ -23,6 +23,8 @@ const baseTheme = {
     black: '#202020',
     gray: '#808080',
     background: '#f7f7f7',
+    primaryFilter:
+      'invert(39%) sepia(82%) saturate(3527%) hue-rotate(340deg) brightness(104%) contrast(87%)',
   },
 };
 
