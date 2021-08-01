@@ -10,10 +10,10 @@ import Button from 'components/Button';
 import InputField from 'components/InputField';
 
 import useMakeStyles from 'hooks/useMakeStyles';
+import useDebouncedEffect from 'hooks/useDebouncedEffect';
 
 import { bpDesktop, StylesFunc } from 'config/styles';
 import { FIELDS, PLACEHOLDER } from '../constants';
-import useDebouncedEffect from 'hooks/useDebouncedEffect';
 
 export type SearchBoxProps = {
   initialValue: string;

@@ -7,10 +7,11 @@ import Image from 'atoms/Image';
 import more from 'assets/icons/more.svg';
 
 import useMakeStyles from 'hooks/useMakeStyles';
+import useBreakpoint from 'hooks/useBreakpoint';
 
 import { User } from 'api/types';
 
-import { StylesFunc } from 'config/styles';
+import { bpDesktop, StylesFunc } from 'config/styles';
 
 export type DriverInfoBoxProps = {
   driver: User;
@@ -25,6 +26,11 @@ type DriverInfoBoxClasses =
 const driverInfoBoxStyles: StylesFunc<DriverInfoBoxClasses> = (theme) => ({
   container: {
     backgroundColor: theme.color.white,
+    display: 'flex',
+    flexDirection: 'column',
+    [bpDesktop]: {
+      flex: '0 0 300px',
+    },
   },
   header: {
     padding: '1em',
@@ -39,19 +45,24 @@ const driverInfoBoxStyles: StylesFunc<DriverInfoBoxClasses> = (theme) => ({
   infoSection: {
     padding: '2em 1em',
     display: 'flex',
+    gap: '1em',
+    [bpDesktop]: {
+      flexDirection: 'column',
+    },
   },
   infoDetail: {
     display: 'flex',
     flexDirection: 'column',
     gap: '0.5em',
     justifyContent: 'center',
-    padding: '0 1em',
+    // padding: '0 1em',
   },
 });
 
 const DriverInfoBox = ({ driver }: DriverInfoBoxProps) => {
   const classes = useMakeStyles(driverInfoBoxStyles);
   const theme = useTheme();
+  const isMobile = useBreakpoint();
 
   return (
     <>
@@ -60,7 +71,11 @@ const DriverInfoBox = ({ driver }: DriverInfoBoxProps) => {
           <Div css={classes.headerId}>
             <Text color={theme.color.gray}>Driver ID:</Text>
             &nbsp;
-            <Text color={theme.color.primary} bold>{`${driver.id.value}`}</Text>
+            <Text
+              textCutoff
+              color={theme.color.primary}
+              bold
+            >{`${driver.id.value}`}</Text>
           </Div>
           <Image src={more} />
         </Div>
@@ -79,6 +94,22 @@ const DriverInfoBox = ({ driver }: DriverInfoBoxProps) => {
               <Text color={theme.color.gray}>Telepon</Text>
               <Text bold>{driver.cell}</Text>
             </Div>
+
+            {!isMobile && (
+              <>
+                <Div>
+                  <Text color={theme.color.gray}>Email</Text>
+                  <Text bold>{driver.email}</Text>
+                </Div>
+
+                <Div>
+                  <Text color={theme.color.gray}>Tanggal Lahir</Text>
+                  <Text bold>
+                    {new Date(driver.dob.date).toLocaleDateString()}
+                  </Text>
+                </Div>
+              </>
+            )}
           </Div>
         </Div>
       </Div>

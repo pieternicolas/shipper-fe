@@ -58,18 +58,18 @@ const Home = () => {
                 driver={user}
               />
             ))}
+          </Div>
 
-            <Div css={classes.pagination}>
-              <Div onClick={() => setPreviousPage()}>
-                <Text color={!previousEnabled ? theme.color.gray : undefined}>
-                  &lt; Previous page
-                </Text>
-              </Div>
-              <Div onClick={() => setNextPage()}>
-                <Text color={!nextEnabled ? theme.color.gray : undefined}>
-                  Next page &gt;
-                </Text>
-              </Div>
+          <Div css={classes.pagination}>
+            <Div onClick={() => setPreviousPage()}>
+              <Text color={!previousEnabled ? theme.color.gray : undefined}>
+                &lt; Previous page
+              </Text>
+            </Div>
+            <Div onClick={() => setNextPage()}>
+              <Text color={!nextEnabled ? theme.color.gray : undefined}>
+                Next page &gt;
+              </Text>
             </Div>
           </Div>
         </Div>

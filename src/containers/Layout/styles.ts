@@ -1,4 +1,4 @@
-import { StylesFunc } from 'config/styles';
+import { bpDesktop, StylesFunc } from 'config/styles';
 
 type LayoutClasses = 'container' | 'navigationBar' | 'logo' | 'logoContainer';
 
@@ -7,6 +7,9 @@ const layoutStyles: StylesFunc<LayoutClasses> = (theme) => ({
     height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
+    [bpDesktop]: {
+      overflowY: 'hidden',
+    },
   },
   navigationBar: {
     backgroundColor: theme.color.white,

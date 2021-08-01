@@ -32,7 +32,7 @@ const sidebarStyles: StylesFunc<SidebarClasses, SidebarProps> = (
     marginTop: '61px',
     [bpDesktop]: {
       position: 'inherit',
-      width: 'inherit',
+      width: '300px',
       marginTop: 0,
       overflowY: 'hidden',
     },
