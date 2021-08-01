@@ -13,6 +13,7 @@ import useMakeStyles from 'hooks/useMakeStyles';
 
 import { StylesFunc } from 'config/styles';
 import { FIELDS, PLACEHOLDER } from '../constants';
+import useDebouncedEffect from 'hooks/useDebouncedEffect';
 
 export type SearchBoxProps = {
   initialValue: string;
@@ -38,6 +39,10 @@ const SearchBox = ({ initialValue, onFilterChange }: SearchBoxProps) => {
   const classes = useMakeStyles(searchBoxStyles);
 
   const [formInputValue, setFormInputValue] = useState<string>(initialValue);
+
+  useDebouncedEffect(() => {
+    onFilterChange(formInputValue.trim());
+  }, [formInputValue]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
