@@ -22,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
   const isMobile = useBreakpoint();
   const theme = useTheme();
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(!isMobile);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   return (
     <>
