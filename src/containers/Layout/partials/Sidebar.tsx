@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import Div from 'atoms/Div';
-
 import Image from 'atoms/Image';
 import Text from 'atoms/Text';
 import home from 'assets/icons/home.svg';

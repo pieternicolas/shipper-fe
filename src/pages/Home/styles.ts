@@ -28,7 +28,7 @@ const homeStyles: StylesFunc<HomeClasses> = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     gap: '3em',
-    ['div']: {
+    div: {
       cursor: 'pointer',
     },
   },

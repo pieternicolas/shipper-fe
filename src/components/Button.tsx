@@ -24,7 +24,7 @@ const buttonStyles: StylesFunc<ButtonClasses, ButtonProps> = (
     border: 0,
     borderRadius: '4px',
     textTransform: 'uppercase',
-    [':hover']: {
+    ':hover': {
       cursor: 'pointer',
     },
   },

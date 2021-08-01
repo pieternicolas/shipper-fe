@@ -1,6 +1,12 @@
 import { bpDesktop, StylesFunc } from 'config/styles';
 
-type LayoutClasses = 'container' | 'navigationBar' | 'logo' | 'logoContainer';
+type LayoutClasses =
+  | 'container'
+  | 'navigationBar'
+  | 'avatarContainer'
+  | 'avatarName'
+  | 'logo'
+  | 'logoContainer';
 
 const layoutStyles: StylesFunc<LayoutClasses> = (theme) => ({
   container: {
@@ -17,6 +23,14 @@ const layoutStyles: StylesFunc<LayoutClasses> = (theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
+  },
+  avatarContainer: {
+    display: 'flex',
+    gap: '1em',
+    alignItems: 'center',
+  },
+  avatarName: {
+    display: 'flex',
   },
   logoContainer: {
     display: 'flex',
