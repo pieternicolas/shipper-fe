@@ -3,11 +3,11 @@ import { useState, HTMLAttributes } from 'react';
 
 import Div from 'atoms/Div';
 import Image from 'atoms/Image';
-
-import useMakeStyles from 'hooks/useMakeStyles';
-
 import logo from 'assets/img/logo-shipper.png';
 import placeholder from 'assets/img/placeholder-avatar.png';
+
+import useMakeStyles from 'hooks/useMakeStyles';
+import useBreakpoint from 'hooks/useBreakpoint';
 
 import layoutStyles from './styles';
 import NavIcon from './partials/NavIcon';
@@ -17,7 +17,9 @@ export type LayoutProps = HTMLAttributes<HTMLDivElement> & {};
 
 const Layout = ({ children }: LayoutProps) => {
   const classes = useMakeStyles(layoutStyles);
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const isMobile = useBreakpoint();
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(!isMobile);
 
   return (
     <>
@@ -38,7 +40,9 @@ const Layout = ({ children }: LayoutProps) => {
 
         <Sidebar
           open={isSidebarOpen}
-          onClick={() => setIsSidebarOpen((state) => !state)}
+          onClick={() =>
+            setIsSidebarOpen((state) => (isMobile ? !state : true))
+          }
         />
 
         {children}

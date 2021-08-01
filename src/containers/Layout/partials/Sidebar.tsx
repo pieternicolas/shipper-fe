@@ -9,7 +9,7 @@ import calendar from 'assets/icons/calendar.svg';
 
 import useMakeStyles from 'hooks/useMakeStyles';
 
-import { StylesFunc } from 'config/styles';
+import { bpDesktop, StylesFunc } from 'config/styles';
 
 export type SidebarProps = {
   open: boolean;
@@ -29,12 +29,26 @@ const sidebarStyles: StylesFunc<SidebarClasses, SidebarProps> = (
     zIndex: 1,
     position: 'fixed',
     overflowX: 'hidden',
+    marginTop: '61px',
+    [bpDesktop]: {
+      position: 'inherit',
+      width: 'inherit',
+      marginTop: 0,
+      overflowY: 'hidden',
+    },
   },
   container: {
     height: '100%',
     width: '60%',
     minWidth: '200px',
     backgroundColor: theme.color.white,
+    [bpDesktop]: {
+      width: '100%',
+      padding: '3em 0',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.5em',
+    },
   },
   navItem: {
     padding: '0.5em 1em',
